@@ -3,7 +3,8 @@ name: Android CI
 on:
   push:
     branches:
-      - main  # or the branch you want to trigger the build from
+      - master
+  workflow_dispatch:
 
 jobs:
   build:
@@ -37,11 +38,3 @@ jobs:
       with:
         name: hello-world-apk
         path: app/build/outputs/apk/debug/app-debug.apk
-
-
-
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
