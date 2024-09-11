@@ -1,27 +1,13 @@
 package com.tinyappco.helloworld
-import android.content.res.Configuration
+
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.tinyappco.helloworld.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityMainBinding
-
-
-override fun onConfigurationChanged(newConfig: Configuration) {
-    super.onConfigurationChanged(newConfig)
-    // Handle configuration changes like dark mode
-    if (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES) {
-        // Dark mode is enabled
-    } else {
-        // Light mode is enabled
-    }
-}
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +15,30 @@ override fun onConfigurationChanged(newConfig: Configuration) {
         val view = binding.root
         setContentView(view)
 
-        binding.btnGreet.setOnClickListener{
-            binding.tvGreeting.text = getString(R.string.hello_android)
-        }
+        // Android version
+        val androidVersion = Build.VERSION.SDK_INT
+        val androidVersionName = Build.VERSION.RELEASE
+
+        // Kernel version
+        val kernelVersion = System.getProperty("os.version")
+
+        // Architecture
+        val architecture = Build.SUPPORTED_ABIS[0]
+
+        // GPU info
+        val renderer = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_RENDERER)
+        val vendor = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_VENDOR)
+
+        // Combine the information
+        val systemInfo = """
+            Android Version: $androidVersion ($androidVersionName)
+            Linux Kernel Version: $kernelVersion
+            Architecture: $architecture
+            GPU Renderer: $renderer
+            GPU Vendor: $vendor
+        """.trimIndent()
+
+        // Display the system info
+        binding.tvGreeting.text = systemInfo
     }
 }
