@@ -12,11 +12,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Update to v3
+      uses: actions/checkout@v3
 
     - name: Set up JDK 11
-      uses: actions/setup-java@v3  # Update to v3
+      uses: actions/setup-java@v3
       with:
+        distribution: 'temurin'  # Add this field
         java-version: '11'
 
     - name: Install Android SDK
