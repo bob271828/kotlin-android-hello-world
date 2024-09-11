@@ -1,5 +1,5 @@
 package com.tinyappco.helloworld
-
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.tinyappco.helloworld.databinding.ActivityMainBinding
