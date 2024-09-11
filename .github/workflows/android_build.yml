@@ -37,3 +37,11 @@ jobs:
       with:
         name: hello-world-apk
         path: app/build/outputs/apk/debug/app-debug.apk
+
+
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
