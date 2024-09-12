@@ -53,3 +53,15 @@ dependencies {
 
 
 
+
+
+
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("assemble")) {
+        println "Task '${task.name}' is registered."
+    }
+}
+
+
+
+
