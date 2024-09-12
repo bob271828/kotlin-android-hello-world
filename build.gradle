@@ -26,6 +26,16 @@
 //    delete rootProject.buildDir
 //}
 
+
+dependencies {
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    // Other dependencies...
+}
+
+
+
+
 plugins {
     id 'com.android.application' version '8.1.2' apply false
     id 'com.android.library' version '8.1.2' apply false
